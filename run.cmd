@@ -1,0 +1,1 @@
+java -server -XX:+HeapDumpOnOutOfMemoryError -Xmx800m -jar E:\github\LittleProxy\target\littleproxy-1.1.1-SNAPSHOT-littleproxy-shade.jar

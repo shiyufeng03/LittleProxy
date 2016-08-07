@@ -11,12 +11,14 @@ public class Main {
 
 	public static void main(String args[]) {
         HttpProxyServerBootstrap strap = DefaultHttpProxyServer.bootstrap();
-        strap.withAddress(new InetSocketAddress("10.12.14.189", 8089))
+        strap.withAddress(new InetSocketAddress("192.168.31.189", 8089))
         	.withFiltersSource(new HttpFiltersSourceAdapter() {
                 public HttpFilters filterRequest(HttpRequest originalRequest, ChannelHandlerContext ctx) {
                     return new SDWHttpFiltersAdapter(originalRequest);
                 }
-            });
+            })
+        	.withChainProxyManager(new SDWChainedProxyManager())
+        	;
         
         strap.start();
     }
